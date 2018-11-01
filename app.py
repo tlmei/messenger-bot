@@ -38,7 +38,7 @@ def receive_message():
                             img_url = attachment['payload'].get('url')
                             print(img_url)
                             attachment['payload']['is_reusable'] = 'true'
-                            print(img_url)
+                            print(attachments)
             ########
             #elif message.get('postback'):
             #    user_response = message['postback'].get('title')         
