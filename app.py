@@ -29,7 +29,6 @@ def receive_message():
                 user_response = message['message'].get('text')
             elif message.get('postback'):
                 user_response = message['postback'].get('title')
-            #user_response = message['message'].get('text')
             print("This is the user response {}".format(user_response))
             exchange_obj = conversation_exchange.Exchange(sender_id,'FB',user_response)
             payloads = exchange_obj.start_conversation()
