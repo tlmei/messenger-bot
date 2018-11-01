@@ -36,7 +36,7 @@ def receive_message():
                         if attachment.get('type') == 'image':
                             print("Found Image!")
                             img_url = attachment['payload'].get('url')
-                            print(image_url)
+                            print(img_url)
             ########
             elif message.get('postback'):
                 user_response = message['postback'].get('title')
