@@ -82,5 +82,6 @@ def modify_fb_messanger_profile(profile_payload):
         )
     result = response.json()
     return result
-
 if __name__ == "__main__":
+    app.run()
+   
