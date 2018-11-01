@@ -21,7 +21,8 @@ def receive_message():
             if message.get('message'):
                 recipient_id = message['sender']['id']
                 if message['message'].get('text'):
-                    response_sent_text = get_message()
+		    print("MESSAGE PROCESSED")	
+                    response_sent_text = "THIS IS FROM HEROKU"
                     send_message(recipient_id, response_sent_text)
                 if message['message'].get('attachments'):
                     response_sent_nontext = get_message()
