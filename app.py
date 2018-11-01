@@ -7,21 +7,16 @@ app = Flask(__name__)
 ACCESS_TOKEN = 'EAAGsOx87ORMBAETxCpKZB5QGy7KJZAZBN9F5lQMZBqQ8nVJKNAV7jyX5gMTNF76fJ7d9ZB1FT38CZCu3CqEwdtBhlOdP3yvR1kYcQpzZCDOSZCMZC3Ms8SWs3jTi35mWvkmrdNl24R971IaZAE0sZBf9CO6n1MzWa8cOSkigzVxbR7BnkHKovvV2IZBq'
 VERIFY_TOKEN = 'tokentroy'
 
-#bot = Bot(ACCESS_TOKEN)
+bot = Bot(ACCESS_TOKEN)
 
 payloads = []
 
-#We will receive messages that Facebook sends our bot at this endpoint 
 @app.route("/webhook", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
-        """Before allowing people to message your bot, Facebook has implemented a verify token
-        that confirms all requests that your bot receives came from Facebook.""" 
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
-    #if the request was not get, it must be POST and we can just proceed with sending a message back to user
     else:
-        # get whatever message a user sent the bot
        output = request.get_json()
        print(output)
        print ('-------------Above is the message from FB--------------')
@@ -45,14 +40,11 @@ def receive_message():
 
  
 def verify_fb_token(token_sent):
-    #take token sent by facebook and verify it matches the verify token you sent
-    #if they match, allow the request, else return an error 
     if token_sent == VERIFY_TOKEN:
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
 
 def send_message(payload):
-    #sends user the text message provided via input response parameter
     #bot.send_text_message(recipient_id, response)
     auth = {
     'access_token':ACCESS_TOKEN
