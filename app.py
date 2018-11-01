@@ -11,7 +11,7 @@ bot = Bot(ACCESS_TOKEN)
 
 payloads = []
 
-@app.route("/webhook", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
         token_sent = request.args.get("hub.verify_token")
