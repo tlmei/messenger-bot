@@ -1,6 +1,7 @@
 import random
 import requests
 from flask import Flask, request
+from pymessenger.bot import Bot
 import conversation_exchange
 
 app = Flask(__name__)
