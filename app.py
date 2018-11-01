@@ -25,8 +25,19 @@ def receive_message():
           messaging = event['messaging']
           for message in messaging:
             sender_id = message['sender']['id']
+            ########
             if message.get('message'):
-                user_response = message['message'].get('text')
+                if message['message'].get('text'):
+                    user_response = message['message'].get('text')
+                elif message['message'].get('attachments'):
+                    attachments = message['message'].get('attachments')
+                    print(attachments)
+                    for attachment in attachments:
+                        if attachment.get('type') == 'image':
+                            print("Found Image!")
+                            img_url = attachment['payload'].get('url')
+                            print(image_url)
+            ########
             elif message.get('postback'):
                 user_response = message['postback'].get('title')
                 
