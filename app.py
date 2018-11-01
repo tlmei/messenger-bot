@@ -29,6 +29,11 @@ def receive_message():
                 user_response = message['message'].get('text')
             elif message.get('postback'):
                 user_response = message['postback'].get('title')
+                
+            elif (message.get('attachments')[0]).get('type') == 'image':
+                image_url = ((message.get('attachments')[0]).get('payload')).get('url')
+                print(image_url)
+                
             print("This is the user response {}".format(user_response))
             exchange_obj = conversation_exchange.Exchange(sender_id,'FB',user_response)
             payloads = exchange_obj.start_conversation()
