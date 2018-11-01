@@ -38,9 +38,9 @@ def receive_message():
                             img_url = attachment['payload'].get('url')
                             print(img_url)
             ########
-            elif message.get('postback'):
-                user_response = message['postback'].get('title')         
-            print("This is the user response {}".format(user_response))
+            #elif message.get('postback'):
+            #    user_response = message['postback'].get('title')         
+            #print("This is the user response {}".format(user_response))
             exchange_obj = conversation_exchange.Exchange(sender_id,'FB',user_response)
             payloads = exchange_obj.start_conversation()
     
