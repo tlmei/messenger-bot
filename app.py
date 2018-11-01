@@ -30,9 +30,8 @@ def receive_message():
             elif message.get('postback'):
                 user_response = message['postback'].get('title')
                 
-            elif (message.get('attachments')[0]).get('type') == 'image':
-                image_url = ((message.get('attachments')[0]).get('payload')).get('url')
-                print(image_url)
+            elif message.get('attachments'):
+                print('TROY MEI SUCCESS, FOUND IMAGE ATTACHMENT!!!')
                 
             print("This is the user response {}".format(user_response))
             exchange_obj = conversation_exchange.Exchange(sender_id,'FB',user_response)
