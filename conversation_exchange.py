@@ -31,7 +31,7 @@ class Exchange(object):
         #payload = response_payload.fb_payload('welcome_user','...',self.user_id_on_platform,conversation_id,payload)
         #payload['message']['attachment']['payload']['text'] = Template(payload['message']['attachment']['payload'].get('text')).safe_substitute(arg1=first_name)
         
-        del payload['platform']
+        #del payload['platform']
         payloads.append(payload)
-        print('This is the payload in exchange about to be send to fb {}'.format(payloads))
+        #print('This is the payload in exchange about to be send to fb {}'.format(payloads))
         return payloads
