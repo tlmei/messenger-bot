@@ -34,8 +34,8 @@ def receive_message():
                 for attachment in attachments:
                     if attachment.get('type') == 'image':
                         print("Found Image!")
-                        img_url = attachment['payload'].get('url')
-                        print(img_url)
+                        user_response = attachment['payload'].get('url')
+                        print(user_response)
             if message.get('postback'):
                 user_response = message['postback'].get('title').encode('utf-8', '')
             #user_response = message['message'].get('text')
