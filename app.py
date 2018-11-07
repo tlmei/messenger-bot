@@ -42,7 +42,8 @@ def receive_message():
             print("This is the user response {}".format(user_response))
             exchange_obj = conversation_exchange.Exchange(sender_id,'FB',user_response)
             payloads = exchange_obj.start_conversation()
-            print("This is the payloads: ", payloads)
+            print("THESE ARE THE PAYLOADS: ", payloads)
+            print("THIS IS THE LENGTH OF PAYLOADS: ", len(payloads))
     for payload in payloads:
         send_message(payload)
     return "Message Processed"
