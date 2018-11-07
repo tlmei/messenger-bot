@@ -33,5 +33,5 @@ class Exchange(object):
         
         #del payload['platform']
         payloads.append(payload)
-        #print('This is the payload in exchange about to be send to fb {}'.format(payloads))
+        print('This is the payload in exchange about to be send to fb {}'.format(payloads))
         return payloads
