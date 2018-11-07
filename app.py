@@ -44,8 +44,8 @@ def receive_message():
             payloads = exchange_obj.start_conversation()
             print("THESE ARE THE PAYLOADS: ", payloads)
             print("THIS IS THE LENGTH OF PAYLOADS: ", len(payloads))
-    for payload in payloads:
-        send_message(payload)
+    #for payload in payloads:
+    send_message(payloads[0])
     return "Message Processed"
 
  
