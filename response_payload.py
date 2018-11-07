@@ -23,7 +23,7 @@ def fb_payload(conversation_state,response,recipient_id,conversation_id,payload,
                 'type': 'image',
                 'payload': {
                     'url': user_response,
-                    'is_reusable': true
+                    'is_reusable': true,
                 }
             }
         }
