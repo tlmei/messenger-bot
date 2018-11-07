@@ -1,4 +1,4 @@
-def fb_payload(conversation_state,response,recipient_id,conversation_id,payload):
+def fb_payload(conversation_state,response,recipient_id,conversation_id,payload,user_response):
     payload['recipient'] = {
     'id': recipient_id
     }
@@ -16,6 +16,16 @@ def fb_payload(conversation_state,response,recipient_id,conversation_id,payload)
         'action':'set_future_state',
         'helper_next_state':'default_state',
         'helpee_next_state':'default_state',
+        }
+    elif conversation_state == 'recieving_img':
+        payload['message'] = {
+            'attachment': {
+                'type': 'image',
+                'payload': {
+                    'url': user_response
+                    'is_reusable': true
+                }
+            }
         }
     elif conversation_state =='welcome_user':
         payload['message'] = {
