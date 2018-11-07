@@ -25,24 +25,21 @@ def receive_message():
           messaging = event['messaging']
           for message in messaging:
             sender_id = message['sender']['id']
-            ########
-            if message.get('message'):
-                if message['message'].get('text'):
-                    user_response = message['message'].get('text')
-                elif message['message'].get('attachments'):
-                    attachments = message['message'].get('attachments')
-                    print(attachments)
-                    for attachment in attachments:
-                        if attachment.get('type') == 'image':
-                            print("Found Image!")
-                            img_url = attachment['payload'].get('url')
-                            print(img_url)
-                            attachment['payload']['is_reusable'] = True
-                            print(output)
-            ########
-            #elif message.get('postback'):
-            #    user_response = message['postback'].get('title')         
-            #print("This is the user response {}".format(user_response))
+            msg = message.get("message")
+            if not msg: continue
+            if msg.get('text'): user_response = msg.get('text')
+            if msg.get('attachments'):
+                attachments = msg.get('attachments')
+                print(attachments)
+                for attachment in attachments:
+                    if attachment.get('type') == 'image':
+                        print("Found Image!")
+                        img_url = attachment['payload'].get('url')
+                        print(img_url)
+            if message.get('postback'):
+                user_response = message['postback'].get('title').encode('utf-8', '')
+            #user_response = message['message'].get('text')
+            print("This is the user response {}".format(user_response))
             exchange_obj = conversation_exchange.Exchange(sender_id,'FB',user_response)
             payloads = exchange_obj.start_conversation()
     
