@@ -17,7 +17,7 @@ def fb_payload(conversation_state,response,recipient_id,conversation_id,payload,
         'helper_next_state':'default_state',
         'helpee_next_state':'default_state',
         }
-    elif conversation_state == 'recieving_img':
+    elif conversation_state == 'receiving_img':
         payload['message'] = {
             'attachment': {
                 'type': 'image',
