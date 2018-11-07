@@ -23,8 +23,12 @@ class Exchange(object):
         #conversation_ref = core_engine_obj.add_conversation(core_engine_obj.get_member())
         #first_name = self.core_engine_obj.get_member().get().to_dict().get('first_name')
         #print('First Name from DB is {}'.format(first_name))
+
         conversation_id = 'None'
-        payload = response_payload.fb_payload('welcome_user','...',self.user_id_on_platform,conversation_id,payload)
+        if self.user_response != None:
+            payload = response_payload.fb_payload('recieving_img', '...', self.user_id_on_platform, conversation_id, payload, user_response)
+
+        #payload = response_payload.fb_payload('welcome_user','...',self.user_id_on_platform,conversation_id,payload)
         #payload['message']['attachment']['payload']['text'] = Template(payload['message']['attachment']['payload'].get('text')).safe_substitute(arg1=first_name)
         
         del payload['platform']
