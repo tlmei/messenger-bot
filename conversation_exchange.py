@@ -26,7 +26,7 @@ class Exchange(object):
 
         conversation_id = 'None'
         if self.user_response != None:
-            payload = response_payload.fb_payload('recieving_img', '...', self.user_id_on_platform, conversation_id, payload, user_response)
+            payload = response_payload.fb_payload('recieving_img', '...', self.user_id_on_platform, conversation_id, payload, self.user_response)
 
         #payload = response_payload.fb_payload('welcome_user','...',self.user_id_on_platform,conversation_id,payload)
         #payload['message']['attachment']['payload']['text'] = Template(payload['message']['attachment']['payload'].get('text')).safe_substitute(arg1=first_name)
