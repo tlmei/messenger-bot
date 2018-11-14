@@ -17,6 +17,9 @@ db = firebase.FirebaseApplication('https://askamy-dev.firebaseio.com', None) #fi
 
 payloads = []
 
+
+print('=========== BEFORE RECIEVE MESSAGE ============')
+
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
