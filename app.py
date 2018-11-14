@@ -1,7 +1,9 @@
 import random
 import requests
+import json
 from flask import Flask, request
 from pymessenger.bot import Bot
+from firebase import firebase
 import conversation_exchange
 
 app = Flask(__name__)
@@ -9,6 +11,7 @@ ACCESS_TOKEN = 'EAAGsOx87ORMBAETxCpKZB5QGy7KJZAZBN9F5lQMZBqQ8nVJKNAV7jyX5gMTNF76
 VERIFY_TOKEN = 'tokentroy'
 
 bot = Bot(ACCESS_TOKEN)
+db = firebase.FirebaseApplication('https://askamy-dev.firebaseio.com', None) #firebase
 
 payloads = []
 
@@ -33,9 +36,14 @@ def receive_message():
                 print(attachments)
                 for attachment in attachments:
                     if attachment.get('type') == 'image':
-                        print("Found Image!")
-                        user_response = attachment['payload'].get('url')
-                        print(user_response)
+                        img_url = attachment['payload'].get('url')
+                        # save image url in firebase
+                        user_response = img_url
+                        data = {'url': img_url}
+                        print(data)
+                        sent = json.dumps(data)
+                        print(sent)
+                        result = firebase.post('/images', sent)
             if message.get('postback'):
                 user_response = message['postback'].get('title').encode('utf-8', '')
             #user_response = message['message'].get('text')
