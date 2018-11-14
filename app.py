@@ -40,9 +40,9 @@ def receive_message():
                         # save image url in firebase
                         user_response = img_url
                         data = {'url': img_url}
-                        print(data)
+                        print("DATA: ", data)
                         sent = json.dumps(data)
-                        print(sent)
+                        print("POST TO FIREBASE: ", sent)
                         result = firebase.post('/images', sent)
             if message.get('postback'):
                 user_response = message['postback'].get('title').encode('utf-8', '')
