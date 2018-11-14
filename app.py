@@ -6,6 +6,8 @@ from pymessenger.bot import Bot
 from firebase import firebase
 import conversation_exchange
 
+print('=========== BEFORE VERIFICATION ============')
+
 app = Flask(__name__)
 ACCESS_TOKEN = 'EAAEZASS6vBYUBACqdyN1TZARIsv9kniDMas9BDABN4AlZBPHG0Ha0ZBZCnpzMeG0WjNWIz1Osp06OgDMUA0zjCZAYBC1c5dLxrMRKkM1LAdZAZCHjIqRKw8AvxFmI4BifPWIEoTCXIvdPIHZAZBBo2w4LRWiGKPq1rN3K7pZCpZB5TdwtQfEbYbCrS68'
 VERIFY_TOKEN = 'tokentroy'
