@@ -24,7 +24,7 @@ print('=========== BEFORE RECIEVE MESSAGE ============')
 def receive_message():
     print('=========== IN RECIEVE MESSAGE ============')
     if request.method == 'GET':
-        token_sent = request.args.get("hub_verify_token")
+        token_sent = request.args.get("hub.verify_token")
         print('TOKEN_SENT: ', token_sent)
         print('VERIFY_FB_TOKEN: ', verify_fb_token(token_sent))
         return verify_fb_token(token_sent)
@@ -67,7 +67,7 @@ def receive_message():
  
 def verify_fb_token(token_sent):
     if token_sent == VERIFY_TOKEN:
-        return request.args.get("hub_challenge")
+        return request.args.get("hub.challenge")
     return 'Invalid verification token'
 
 def send_message(payload):
