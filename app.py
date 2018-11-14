@@ -6,8 +6,6 @@ from pymessenger.bot import Bot
 from firebase import firebase
 import conversation_exchange
 
-print('=========== BEFORE VERIFICATION ============')
-
 app = Flask(__name__)
 ACCESS_TOKEN = 'EAAEZASS6vBYUBACqdyN1TZARIsv9kniDMas9BDABN4AlZBPHG0Ha0ZBZCnpzMeG0WjNWIz1Osp06OgDMUA0zjCZAYBC1c5dLxrMRKkM1LAdZAZCHjIqRKw8AvxFmI4BifPWIEoTCXIvdPIHZAZBBo2w4LRWiGKPq1rN3K7pZCpZB5TdwtQfEbYbCrS68'
 VERIFY_TOKEN = 'tokentroy'
@@ -17,16 +15,10 @@ db = firebase.FirebaseApplication('https://askamy-dev.firebaseio.com', None) #fi
 
 payloads = []
 
-
-print('=========== BEFORE RECIEVE MESSAGE ============')
-
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
-    print('=========== IN RECIEVE MESSAGE ============')
     if request.method == 'GET':
         token_sent = request.args.get("hub.verify_token")
-        print('TOKEN_SENT: ', token_sent)
-        print('VERIFY_FB_TOKEN: ', verify_fb_token(token_sent))
         return verify_fb_token(token_sent)
     else:
        output = request.get_json()
