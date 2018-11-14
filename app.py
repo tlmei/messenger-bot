@@ -7,7 +7,7 @@ from firebase import firebase
 import conversation_exchange
 
 app = Flask(__name__)
-ACCESS_TOKEN = 'EAAEZASS6vBYUBALcAEiq47LTi2x4rb9WCeB8hNZA7iMg6fMMavPKqUY0STk3HW31hXcO5jNWLCp9usIYNsZAhA7bi0wberkoKpJKlf2pjfzyDEpD4ajWRVnNZCHXEsRBNe2sJJHP9eBKXDpILZAFEzmRsqezpwFMwpCHZAcRlx5FgndqgcfyQD'
+ACCESS_TOKEN = 'EAAEZASS6vBYUBAE4bge7zCprVXwfrZCikRZBlhE4WvVrxc5wVudYA7R0LXPxs8kCMuSCWSSBdG7VrS1Ahs23tVkMn6ZAvktfvzyzd3OEFoylID9gQFK9A0JlZBmZAvC0DgmbyKTZBtsZBRmHEfXUCe3QZAlbhl14IaZCxYVOwiOCmTBEwhJiyaalOI'
 VERIFY_TOKEN = 'tokentroy'
 
 bot = Bot(ACCESS_TOKEN)
