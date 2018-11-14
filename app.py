@@ -43,7 +43,7 @@ def receive_message():
                         print("DATA: ", data)
                         sent = json.dumps(data)
                         print("POST TO FIREBASE: ", sent)
-                        result = firebase.post('/images', sent)
+                        result = db.post('/images', sent)
             if message.get('postback'):
                 user_response = message['postback'].get('title').encode('utf-8', '')
             #user_response = message['message'].get('text')
