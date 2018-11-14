@@ -10,7 +10,7 @@ from string import Template
 
 class Exchange(object):
 
-    def __init__(self, member_identifier, source_platform,user_response):
+    def __init__(self, member_identifier, source_platform, user_response):
         self.user_id_on_platform = member_identifier
         self.source_platform = source_platform
         #self.core_engine_obj=core_engine_obj
